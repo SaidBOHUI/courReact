@@ -7,7 +7,7 @@ import Formations from '../components/Formations';
 import Experiences from '../components/Experiences';
 import Competences from '../components/Competences';
 // import Degrees from '../components/Degrees';
-// import Hobbies from '../components/Hobbies';
+import Hobbies from '../components/Hobbies';
 
 
 const Cv = () => {
@@ -19,7 +19,7 @@ const Cv = () => {
                     <Experiences/>
                     <Competences/>
                     {/* <Degrees/> */}
-                    {/* <Hobbies/> */}
+                    <Hobbies/>
                 <Footer />
             </>
 }

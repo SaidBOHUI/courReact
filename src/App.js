@@ -1,23 +1,27 @@
 // import logo from './logo.svg'; 
 import './App.css';
+import React, {lazy, Suspense} from 'react';
+import Loader from './components/Loader'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import Home from './components/Home'
-import Projet from './components/Projet'
-import Cv from './components/Cv'
-import Contact from './components/Contact'
-import Error from './components/Error'
+const Home = lazy(() => import ('./pages/Home'));
+const Projet = lazy(() => import ('./pages/Projet'));
+const Cv = lazy(() => import ('./pages/Cv'));
+const Contact = lazy(() => import ('./pages/Contact'));
+const Error = lazy(() => import ('./pages/Error'));
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path = "/" element = {<Home />}/>
-        <Route path = "/projet" element = {<Projet />}/>
-        <Route path = "/cv" element = {<Cv />}/>
-        <Route path = "/contact" element = {<Contact />}/>
-        <Route path = "*" element = {<Error />}/>
-      </Routes>
-    </Router>
+    <Suspense fallback = {<Loader />}>
+      <Router>
+        <Routes>
+            <Route path = "/" element = {<Home />}/>
+            <Route path = "/projet" element = {<Projet />}/>
+            <Route path = "/cv" element = {<Cv />}/>
+            <Route path = "/contact" element = {<Contact />}/>
+            <Route path = "*" element = {<Error />}/>
+        </Routes>
+      </Router>
+    </Suspense>
   );
 }
 

@@ -1,5 +1,3 @@
-import React, {Suspense} from 'react';
-import Loader from '../components/Loader';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
